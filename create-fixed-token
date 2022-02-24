@@ -1,0 +1,12 @@
+      import hudson.model.*;
+      import jenkins.model.*;
+      import jenkins.security.*;
+      import jenkins.security.apitoken.*;
+
+      def userName = "admin";
+      def tokenName = "fixed-casc-token";
+
+      def user = User.get(userName, false);
+      def apiTokenProperty = user.getProperty(ApiTokenProperty.class);
+      def result = apiTokenProperty.tokenStore.addFixedNewToken(tokenName, "21848a23f1ae2565dfde45586e1e043c78");
+      user.save();
